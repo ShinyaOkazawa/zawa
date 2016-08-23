@@ -13,7 +13,6 @@ let Common = Common || {};
 			let resizeEvent = new ZAWA.Throttle(1000, function(){
 				ZAWA.Controller.emit('resize');
 			});
-			console.log(resizeEvent);
 			window.addEventListener('resize', resizeEvent.run.bind(this), false);
 		}
 
