@@ -19,8 +19,8 @@
 	cursor: pointer;
 }
 .slider.is-left{
-	cursor: url(/assets/images/slider/ico_arrow_left.png), pointer;
+	cursor: url(/assets/images/slider/ico_arrow_left.png) 24 19, auto;
 }
 .slider.is-right{
-	cursor: url(/assets/images/slider/ico_arrow_right.png), pointer;
+	cursor: url(/assets/images/slider/ico_arrow_right.png) 24 19, auto;
 }

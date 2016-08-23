@@ -37,9 +37,11 @@ var ZAWA = ZAWA || {};
 				var mouseMoveEvent = new ZAWA.Throttle(100, this._onMouseMove.bind(this));
 
 				this._setLayer();
+
 				this._$slider.on('mouseover', this._onMouseOver.bind(this));
 				this._$slider.on('mouseleave', this._onMouseLeave.bind(this));
 				this._$slider.on('mousemove', mouseMoveEvent.run.bind(this));
+				this._$slider.on('click', this._onClick.bind(this));
 			}
 		}, {
 			key: '_setLayer',
@@ -50,22 +52,6 @@ var ZAWA = ZAWA || {};
 					var $this = $(this);
 					$this.css({ 'z-index': len - i });
 				});
-			}
-		}, {
-			key: '_onMouseOver',
-			value: function _onMouseOver(e) {
-				this._isOnTarget = true;
-			}
-		}, {
-			key: '_onMouseLeave',
-			value: function _onMouseLeave() {
-				this._isOnTarget = false;
-			}
-		}, {
-			key: '_onMouseMove',
-			value: function _onMouseMove(e) {
-				this._currentDirection = this._getDirection(e);
-				this._setDirectionClass();
 			}
 		}, {
 			key: '_setDirectionClass',
@@ -96,8 +82,32 @@ var ZAWA = ZAWA || {};
 				}
 			}
 		}, {
-			key: '_setClass',
-			value: function _setClass() {}
+			key: '_onMouseOver',
+			value: function _onMouseOver(e) {
+				this._isOnTarget = true;
+			}
+		}, {
+			key: '_onMouseLeave',
+			value: function _onMouseLeave() {
+				this._isOnTarget = false;
+			}
+		}, {
+			key: '_onMouseMove',
+			value: function _onMouseMove(e) {
+				this._currentDirection = this._getDirection(e);
+				this._setDirectionClass();
+			}
+		}, {
+			key: '_onClick',
+			value: function _onClick() {
+				// if(this._$slider.hasClass(this._onLeftClass)){
+				//
+				// } else if(this._$slider.hasClass(this._onRightClass)){
+				//
+				// }
+
+				return false;
+			}
 		}]);
 
 		return Slider;
