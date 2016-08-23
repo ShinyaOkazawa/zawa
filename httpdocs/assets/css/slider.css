@@ -1,0 +1,32 @@
+.slider-slides
+{
+    position: relative;
+}
+
+.slider-slide
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slider-slide img
+{
+    width: 100%;
+    height: auto;
+}
+
+.slider:hover
+{
+    cursor: pointer;
+}
+
+.slider.is-left:hover
+{
+    cursor: url(/assets/images/slider/ico_arrow_left.png), pointer;
+}
+
+.slider.is-right:hover
+{
+    cursor: url(/assets/images/slider/ico_arrow_right.png), pointer;
+}

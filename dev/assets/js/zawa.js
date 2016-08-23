@@ -72,15 +72,15 @@ let ZAWA = ZAWA || {};
 			this._callback = callback;
 			this._lastTime = 0;
 
-			this.run = () => {
+			this._init();
+
+			this.run = (arg) => {
 				if((this._lastTime + this._interval) <= new Date().getTime()){
 					this._lastTime = new Date().getTime();
-					this._callback();
+					this._callback(arg);
 					return;
 				}
-			};
-
-			this._init();
+			}
 		}
 
 		_init(){

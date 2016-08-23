@@ -88,15 +88,15 @@ var ZAWA = ZAWA || {};
 			this._callback = callback;
 			this._lastTime = 0;
 
-			this.run = function () {
+			this._init();
+
+			this.run = function (arg) {
 				if (_this._lastTime + _this._interval <= new Date().getTime()) {
 					_this._lastTime = new Date().getTime();
-					_this._callback();
+					_this._callback(arg);
 					return;
 				}
 			};
-
-			this._init();
 		}
 
 		_createClass(Throttle, [{

@@ -23,7 +23,8 @@ var Common = Common || {};
 				var resizeEvent = new ZAWA.Throttle(1000, function () {
 					ZAWA.Controller.emit('resize');
 				});
-				window.addEventListener('resize', resizeEvent.run, false);
+				console.log(resizeEvent);
+				window.addEventListener('resize', resizeEvent.run.bind(this), false);
 			}
 		}, {
 			key: '_onLoad',
