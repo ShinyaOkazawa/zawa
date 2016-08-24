@@ -83,11 +83,11 @@ let ZAWA = ZAWA || {};
 		}
 
 		_onClick(){
-			// if(this._$slider.hasClass(this._onLeftClass)){
-			//
-			// } else if(this._$slider.hasClass(this._onRightClass)){
-			//
-			// }
+			if(this._$slider.hasClass(this._onLeftClass)){
+
+			} else if(this._$slider.hasClass(this._onRightClass)){
+			// http://tokyocatspecialists.jp/
+			}
 
 			return false;
 		}
