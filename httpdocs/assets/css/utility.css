@@ -1,0 +1,12 @@
+head
+{
+    font-family: pc;
+}
+
+@media screen and (max-width: 768px)
+{
+    head
+    {
+        font-family: sp;
+    }
+}
