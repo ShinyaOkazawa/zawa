@@ -1,26 +1,48 @@
 @charset 'utf-8';
 
 .slider{
-
-}
-.slider-slides{
 	position: relative;
 }
-.slider-slide{
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-.slider-slide img{
+.slider__inner{
+	overflow: hidden;
 	width: 100%;
-	height: auto;
 }
-.slider:hover{
-	cursor: pointer;
+.slider__slides{
+	overflow: hidden;
+	width: 10000px; /* optimized on js*/
+
+	.slide__item{
+		float: left;
+	}
+	.slide__item img{
+		width: 100%;
+		height: auto;
+	}
 }
-.slider.is-left{
-	cursor: url(/assets/images/slider/ico_arrow_left.png) 24 19, auto;
-}
-.slider.is-right{
-	cursor: url(/assets/images/slider/ico_arrow_right.png) 24 19, auto;
+.slider__pager{
+
+	.pager__btn{
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.pager__btn--prev{
+		left: 0;
+	}
+	.pager__btn--next{
+		right: 0;
+	}
+	.pager__btn a{
+		display: block;
+		width: 48px;
+		height: 38px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+	}
+	.pager__btn--prev a{
+		background-image: url(/assets/images/slider/ico_arrow_left.png);
+	}
+	.pager__btn--next a{
+		background-image: url(/assets/images/slider/ico_arrow_right.png);
+	}
 }

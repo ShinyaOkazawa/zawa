@@ -11,16 +11,21 @@
 <body>
 
 	<div id="Slider" class="slider js-slider">
-		<div class="slider-inner">
-			<div class="slider-slides">
-				<div class="slider-slide"><img src="/assets/images/slider/img01.jpg" alt=""></div>
-				<div class="slider-slide"><img src="/assets/images/slider/img02.jpg" alt=""></div>
-				<div class="slider-slide"><img src="/assets/images/slider/img03.jpg" alt=""></div>
-			<!-- .slider-slides // --></div>
+		<div class="slider__inner">
+			<div class="slider__slides slide">
+				<div class="slide__item"><img src="/assets/images/slider/img01.jpg" alt=""></div>
+				<div class="slide__item"><img src="/assets/images/slider/img02.jpg" alt=""></div>
+				<div class="slide__item"><img src="/assets/images/slider/img03.jpg" alt=""></div>
+			<!-- .slider__slides // --></div>
+			<div class="slider__pager pager">
+				<div class="pager__btn pager__btn--prev"><a href="#"></a></div>
+				<div class="pager__btn pager__btn--next"><a href="#"></a></div>
+			<!-- .slider-pager // --></div>
 		<!-- .slider-inner // --></div>
 	<!-- .slider // --></div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="/assets/js/lib/imagesloaded.pkgd.min.js"></script>
 	<script src="/assets/js/lib/TweenMax.min.js"></script>
 	<script src="/assets/js/lib/zawa.js"></script>
 	<script src="/assets/js/lib/zawa.utility.js"></script>
