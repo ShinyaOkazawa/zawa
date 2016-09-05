@@ -89,6 +89,9 @@ gulp.task('js', function(){
 	var dstGlob = path.join(paths.dstDir);
 
 	return gulp.src( srcGlob ,{ base: paths.srcDir })
+		.pipe(plumber({
+			errorHandler: notify.onError('Error: <%= error.message %>')
+		}))
 		.pipe(babel({
 			presets: ['es2015']
 		}))

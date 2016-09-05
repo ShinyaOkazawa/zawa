@@ -22,6 +22,7 @@
 .slider__pager{
 
 	.pager__btn{
+		display: inline-block;
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);

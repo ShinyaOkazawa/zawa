@@ -14,12 +14,13 @@ var ZAWA = ZAWA || {};
 			_classCallCheck(this, Slider);
 
 			this._$slider = $container;
-			this._$inner = this._$slider.children();
-			this._$slides = this._$inner.children();
-			this._$slideList = this._$slides.children();
+			this._$inner = this._$slider.find('.slider__inner');
+			this._$slides = this._$inner.find('.slider__slides');
+			this._$slideList = this._$slides.find('.slide__item');
 			this._$pagerPrev = this._$slider.find('.pager__btn--prev a');
 			this._$pagerNext = this._$slider.find('.pager__btn--next a');
 			this._slideLen = this._$slideList.length;
+			this._windowW = 0;
 			$container = null;
 
 			this._init();
@@ -28,14 +29,38 @@ var ZAWA = ZAWA || {};
 		_createClass(Slider, [{
 			key: '_init',
 			value: function _init() {
+				this._getWindowW();
 				this._setSlidesWidth();
+				this._onEvent();
+			}
+		}, {
+			key: '_onEvent',
+			value: function _onEvent() {
+				var _this = this;
+
+				this._$pagerNext.on('click', function () {
+					_this._next();
+				});
+				this._$pagerPrev.on('click', function () {
+					_this._prev();
+				});
+			}
+		}, {
+			key: '_getWindowW',
+			value: function _getWindowW() {
+				this._windowW = window.innerWidth;
 			}
 		}, {
 			key: '_setSlidesWidth',
 			value: function _setSlidesWidth() {
-				var slideW = this._$slideList.eq(0).width();
-				console.log(slideW);
+				this._$slideList.width(this._windowW);
 			}
+		}, {
+			key: '_next',
+			value: function _next() {}
+		}, {
+			key: '_prev',
+			value: function _prev() {}
 		}]);
 
 		return Slider;
