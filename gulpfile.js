@@ -85,7 +85,6 @@ gulp.task('html', function(){
 
 //js
 gulp.task('js', function(){
-	var srcGlob = path.join(paths.srcDir, '**/*.js');
 	var srcGlob = [paths.srcDir + '**/*.js', '!' + paths.srcDir + 'js/lib/**/*.js'];
 	var dstGlob = path.join(paths.dstDir);
 

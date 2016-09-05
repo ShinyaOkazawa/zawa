@@ -14,6 +14,7 @@ var ZAWA = ZAWA || {};
 			_classCallCheck(this, Utility);
 
 			this._ua = window.navigator.userAgent.toLowerCase();
+			this._ver = window.navigator.appVersion.toLowerCase();
 		}
 
 		_createClass(Utility, [{
@@ -28,6 +29,46 @@ var ZAWA = ZAWA || {};
 			value: function isTablet() {
 				return this._ua.indexOf('windows') !== -1 && this._ua.indexOf('touch') !== -1 && this._indexOf('tablet pc') !== -1 || this._ua.indexOf('ipad') !== -1 || this._ua.indexOf('android') !== -1 && this._ua.indexOf('mobile') === -1 || this._ua.indexOf('firefox') !== -1 && this._ua.indexOf('tablet') !== -1 || this._ua.indexOf('kindle') !== -1 || this._ua.indexOf('silk') !== -1 || this._ua.indexOf('playbook') !== -1;
 			}
+		}, {
+			key: 'isMSIE',
+			value: function isMSIE() {
+				return this._ua.indexOf('msie') !== -1 && this._ua.indexOf('opera') === -1;
+			}
+		}, {
+			key: 'isIE8',
+			value: function isIE8() {
+				return this.isMSIE() && this._ver.indexOf('msie 8.') !== -1;
+			}
+		}, {
+			key: 'isIE9',
+			value: function isIE9() {
+				return this.isMSIE() && this._ver.indexOf('msie 9.') !== -1;
+			}
+		}, {
+			key: 'isIE10',
+			value: function isIE10() {
+				return this.isMSIE() && this._ver.indexOf('msie 10.') !== -1;
+			}
+		}, {
+			key: 'isIE11',
+			value: function isIE11() {
+				return this._ua.indexOf('trident/7') !== -1 && !this.isMSIE();
+			}
+		}, {
+			key: 'isEdge',
+			value: function isEdge() {
+				return this._ua.indexOf('edge') !== -1;
+			}
+		}, {
+			key: 'isChrome',
+			value: function isChrome() {
+				return this._ua.indexOf('chrome') !== -1 && this._ua.indexOf('edge') === -1;
+			}
+		}, {
+			key: 'isFirefox',
+			value: function isFirefox() {
+				return this._ua.indexOf('firefox') !== -1;
+			}
 		}]);
 
 		return Utility;
@@ -36,7 +77,7 @@ var ZAWA = ZAWA || {};
 	ZAWA.Utility = new Utility();
 
 	$(function () {
-
-		console.log(ZAWA.Utility.isTablet());
+		console.log(window.navigator.userAgent);
+		console.log(ZAWA.Utility.isFirefox());
 	});
 })();

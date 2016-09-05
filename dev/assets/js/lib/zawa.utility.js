@@ -6,6 +6,7 @@ let ZAWA = ZAWA || {};
 	class Utility{
 		constructor(){
 			this._ua = window.navigator.userAgent.toLowerCase();
+			this._ver = window.navigator.appVersion.toLowerCase();
 		}
 
 		isMobile(){
@@ -16,7 +17,7 @@ let ZAWA = ZAWA || {};
 				|| this._ua.indexOf('ipod') !== -1
 				|| (this._ua.indexOf('android') !== -1 && this._ua.indexOf('mobile') !== 1)
 				|| (this._ua.indexOf('firefox') !== -1 && this._ua.indexOf('mobile') !== -1)
-				|| this._ua.indexOf('blackberry') !== -1
+				|| this._ua.indexOf('blackberry') !== -1;
 		}
 
 		isTablet(){
@@ -26,7 +27,39 @@ let ZAWA = ZAWA || {};
 				|| (this._ua.indexOf('firefox') !== -1 && this._ua.indexOf('tablet') !== -1)
 				|| this._ua.indexOf('kindle') !== -1
 				|| this._ua.indexOf('silk') !== -1
-				|| this._ua.indexOf('playbook') !== -1
+				|| this._ua.indexOf('playbook') !== -1;
+		}
+
+		isMSIE(){
+			return this._ua.indexOf('msie') !== -1 && this._ua.indexOf('opera') === -1;
+		}
+
+		isIE8(){
+			return this.isMSIE() && this._ver.indexOf('msie 8.') !== -1;
+		}
+
+		isIE9(){
+			return this.isMSIE() && this._ver.indexOf('msie 9.') !== -1;
+		}
+
+		isIE10(){
+			return this.isMSIE() && this._ver.indexOf('msie 10.') !== -1;
+		}
+
+		isIE11(){
+			return this._ua.indexOf('trident/7') !== -1 && !this.isMSIE();
+		}
+
+		isEdge(){
+			return this._ua.indexOf('edge') !== -1;
+		}
+
+		isChrome(){
+			return this._ua.indexOf('chrome') !== -1 && this._ua.indexOf('edge') === -1;
+		}
+
+		isFirefox(){
+			return this._ua.indexOf('firefox') !== -1;
 		}
 
 	}
@@ -34,8 +67,8 @@ let ZAWA = ZAWA || {};
 
 
 	$(function(){
-		
-		console.log(ZAWA.Utility.isTablet());
+		console.log(window.navigator.userAgent);
+		console.log(ZAWA.Utility.isFirefox());
 
 	});
 
