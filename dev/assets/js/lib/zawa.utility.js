@@ -62,13 +62,17 @@ let ZAWA = ZAWA || {};
 			return this._ua.indexOf('firefox') !== -1;
 		}
 
+		isSafari(){
+			return this._ua.indexOf('safari') !== -1 && this._ua.indexOf('chrome') === -1;
+		}
+
 	}
 	ZAWA.Utility = new Utility;
 
 
 	$(function(){
 		console.log(window.navigator.userAgent);
-		console.log(ZAWA.Utility.isFirefox());
+		console.log(ZAWA.Utility.isSafari());
 
 	});
 

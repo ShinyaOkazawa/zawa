@@ -69,6 +69,11 @@ var ZAWA = ZAWA || {};
 			value: function isFirefox() {
 				return this._ua.indexOf('firefox') !== -1;
 			}
+		}, {
+			key: 'isSafari',
+			value: function isSafari() {
+				return this._ua.indexOf('safari') !== -1 && this._ua.indexOf('chrome') === -1;
+			}
 		}]);
 
 		return Utility;
@@ -78,6 +83,6 @@ var ZAWA = ZAWA || {};
 
 	$(function () {
 		console.log(window.navigator.userAgent);
-		console.log(ZAWA.Utility.isFirefox());
+		console.log(ZAWA.Utility.isSafari());
 	});
 })();
