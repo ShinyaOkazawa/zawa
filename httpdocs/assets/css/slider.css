@@ -34,6 +34,8 @@
     position: absolute;
     top: 50%;
 
+    display: inline-block;
+
     -webkit-transform: translateY(-50%);
 
             transform: translateY(-50%);
