@@ -15,6 +15,8 @@ var ZAWA = ZAWA || {};
 
 			this._ua = window.navigator.userAgent.toLowerCase();
 			this._ver = window.navigator.appVersion.toLowerCase();
+
+			this._$html = $('html');
 		}
 
 		_createClass(Utility, [{
@@ -105,35 +107,25 @@ var ZAWA = ZAWA || {};
 				return this._ua.indexOf('opera') !== -1;
 			}
 		}, {
-			key: 'setClassToHTML',
-			value: function setClassToHTML() {
-				var html = document.querySelector('html'),
-				    classList = [];
+			key: 'setUAClass',
+			value: function setUAClass() {
 
-				classList = html.className.split(' ');
-
-				var joinedList = void 0;
-
-				if (this.isMobile()) classList.push('mobile');
-				if (this.isTablet()) classList.push('tablet');
-				if (this.isiPhone()) classList.push('iphone');
-				if (this.isiPad()) classList.push('ipad');
-				if (this.isAndroid()) classList.push('android');
-				if (this.isAndroidTablet()) classList.push('androidtablet');
-				if (this.isIE8()) classList.push('ie8');
-				if (this.isIE9()) classList.push('ie9');
-				if (this.isIE10()) classList.push('ie10');
-				if (this.isIE11()) classList.push('ie11');
-				if (this.isIE()) classList.push('ie');
-				if (this.isEdge()) classList.push('edge');
-				if (this.isChrome()) classList.push('chrome');
-				if (this.isFirefox()) classList.push('firefox');
-				if (this.isSafari()) classList.push('safari');
-				if (this.isOpera()) classList.push('opera');
-
-				joinedList = classList.join(' ').trim();
-
-				html.className = joinedList;
+				if (this.isMobile()) this._$html.addClass('mobile');
+				if (this.isTablet()) this._$html.addClass('tablet');
+				if (this.isiPhone()) this._$html.addClass('iphone');
+				if (this.isiPad()) this._$html.addClass('ipad');
+				if (this.isAndroid()) this._$html.addClass('android');
+				if (this.isAndroidTablet()) this._$html.addClass('androidtablet');
+				if (this.isIE8()) this._$html.addClass('ie8');
+				if (this.isIE9()) this._$html.addClass('ie9');
+				if (this.isIE10()) this._$html.addClass('ie10');
+				if (this.isIE11()) this._$html.addClass('ie11');
+				if (this.isIE()) this._$html.addClass('ie');
+				if (this.isEdge()) this._$html.addClass('edge');
+				if (this.isChrome()) this._$html.addClass('chrome');
+				if (this.isFirefox()) this._$html.addClass('firefox');
+				if (this.isSafari()) this._$html.addClass('safari');
+				if (this.isOpera()) this._$html.addClass('opera');
 			}
 		}]);
 
@@ -143,6 +135,42 @@ var ZAWA = ZAWA || {};
 	ZAWA.Utility = new Utility();
 
 	$(function () {
-		ZAWA.Utility.setClassToHTML();
+		ZAWA.Utility.setUAClass();
+	});
+})();
+
+(function () {
+	'use strict';
+
+	var PageView = function () {
+		function PageView() {
+			_classCallCheck(this, PageView);
+
+			this._responsiveMode = null;
+			this._$html = $('html');
+			this._$head = $('head');
+		}
+
+		_createClass(PageView, [{
+			key: 'setResponsiveClass',
+			value: function setResponsiveClass() {
+				var mode = this._$head.css('font-family');
+				if (mode === 'pc') {
+					this._$html.removeClass('modeSD');
+					this._$html.addClass('modePC');
+				} else {
+					this._$html.removeClass('modePC');
+					this._$html.addClass('modeSD');
+				}
+			}
+		}]);
+
+		return PageView;
+	}();
+
+	ZAWA.PageView = new PageView();
+
+	$(function () {
+		ZAWA.PageView.setResponsiveClass();
 	});
 })();
